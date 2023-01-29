@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "clean_pyramid"
+version = "0.1.0"
+description = "Clean architecture with python and pyramid as backend provider"
+
+license = "MIT"
+
+authors = [
+    "Gustavo Brito <britopereiragustavo@gmail.com>"
+]
+
+repository = "https://github.com/GustavoBPereira/clean_pyramid"
+homepage = "https://github.com/GustavoBPereira/clean_pyramid"
+
+# README file(s) are used as the package description
+readme = ["README.md"]
+
+# Keywords (translated to tags on the package index)
+keywords = ["python", "poetry", "pyramid", "clean_architecture"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pytest = "^7.2.1"
