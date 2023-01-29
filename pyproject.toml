@@ -9,11 +9,15 @@ authors = [
     "Gustavo Brito <britopereiragustavo@gmail.com>"
 ]
 
+packages = [
+  {include = "app"},
+]
+
 repository = "https://github.com/GustavoBPereira/clean_pyramid"
 homepage = "https://github.com/GustavoBPereira/clean_pyramid"
 
 # README file(s) are used as the package description
-readme = ["README.md"]
+readme = ["readme.md"]
 
 # Keywords (translated to tags on the package index)
 keywords = ["python", "poetry", "pyramid", "clean_architecture"]
