@@ -1,4 +1,5 @@
 from app.domain.token.gateway import InterfaceTokenConsultorGateway
+from app.domain.token.exceptions import TokenLengthError, TokenBeginError, TokenFinalError, TokenRegisteredError
 
 
 class InterfaceCheckTokenUseCase:
@@ -29,19 +30,32 @@ class ImplementationCheckTokenUseCase:
         return self.check_length() and self.check_begin() and self.check_final() and self.check_is_registered()
 
     def check_length(self) -> bool:
-        return len(self.token) == 5
+        if len(self.token) == 5:
+            return True
+        else:
+            raise TokenLengthError()
+
 
     def check_begin(self) -> bool:
         try:
-            return self.token[0].isalpha()
+            if self.token[0].isalpha():
+                return True
+            else:
+                raise TokenBeginError()
         except IndexError:
             return False
 
     def check_final(self) -> bool:
         try:
-            return self.token[4].isdecimal()
+            if self.token[4].isdecimal():
+                return True
+            else:
+                raise TokenFinalError()
         except IndexError:
             return False
 
     def check_is_registered(self) -> bool:
-        return self.token in self.gateway.get_tokens()
+        if self.token in self.gateway.get_tokens():
+            return True
+        else:
+            raise TokenRegisteredError()
